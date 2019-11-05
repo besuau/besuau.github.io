@@ -16,6 +16,47 @@
 	margin-left: 25%;
 	transition: 0.5s;
 }
+
+button
+{
+	border: none;
+}
+#projectsList
+{
+	position: fixed;
+	width: 800px;
+	display: none;
+	opacity: 0.0;
+	flex-wrap: wrap;
+	margin-top: 5%;
+	margin-left: 25%;
+	--items-h: 2;
+	--item-width: calc((100% / var(--items-h)) - 50px);
+	--remaining-items: 2; /* Updated with JS */
+	transition: 1.5s;
+}
+.projectItem
+{
+	/*flex-grow: 1;*/
+	width: var(--item-width);
+	margin-bottom: 50px;
+	margin-right: 50px;
+	cursor: pointer;
+	font-family: Verdana;
+	box-shadow: 2px 2px 7px #FFFFFF;
+	background-color: #FFFFFF;
+}
+.projectItem:hover
+{
+	box-shadow: 2px 2px 7px #6b6b6b;
+}
+.projectItem > img,
+.projectItem > svg
+{
+	display: block;
+	width: 100%;
+	object-fit: cover;
+}
 </style>
 </head>
 <body style="background-color:#FFFFF;">
@@ -32,6 +73,9 @@ document.body.addEventListener('wheel', e =>
 			margin+=5;
 			document.getElementsByClassName("logo")[0].style.height = logoSize;
 			document.getElementsByClassName("logo")[0].style.marginLeft = margin+"%";
+
+			document.getElementById("projectsList").style.display = "none";
+			document.getElementById("projectsList").style.opacity = 0.0;
 		}
 	}
 	else
@@ -42,10 +86,25 @@ document.body.addEventListener('wheel', e =>
 			margin-=5;
 			document.getElementsByClassName("logo")[0].style.height = logoSize;
 			document.getElementsByClassName("logo")[0].style.marginLeft =  margin+"%";
+			
+			document.getElementById("projectsList").style.display = "flex";
+			document.getElementById("projectsList").style.opacity = 1.0;
 		}
 	}
 });
 </script>
 <div id="logo"><img src="bsl.png" class="logo" style="max-height:100%;" /></div>
+
+<div id="projectsList">
+	<button class="projectItem">
+		<img src="GPSLapTiming.png">
+	</button>
+	<button class="projectItem">
+		<img src="GPSLapTiming.png">
+	</button>
+	<button class="projectItem">
+		<img src="GPSLapTiming.png">
+	</button>
+</div>
 </body>
 </html>
