@@ -25,7 +25,7 @@ button
 {
 	position: fixed;
 	width: 800px;
-	display: none;
+	display: flex;
 	opacity: 0.0;
 	flex-wrap: wrap;
 	margin-top: 5%;
@@ -33,7 +33,7 @@ button
 	--items-h: 2;
 	--item-width: calc((100% / var(--items-h)) - 50px);
 	--remaining-items: 2; /* Updated with JS */
-	transition: 1.5s;
+	transition: 0.5s;
 }
 .projectItem
 {
@@ -75,12 +75,13 @@ document.body.addEventListener('wheel', e =>
 			margin+=5;
 			document.getElementsByClassName("logo")[0].style.height = logoSize;
 			document.getElementsByClassName("logo")[0].style.marginLeft = margin+"%";
-		}
+		/*}
 
 		if (logoSize>540)
 		{
-			document.getElementById("projectsList").style.display = "none";
-			document.getElementById("projectsList").style.opacity = 0.0;
+			document.getElementById("projectsList").style.display = "none";*/
+			var f=1.0-(logoSize-300.0)/300.0;
+			document.getElementById("projectsList").style.opacity = f*f*f;
 		}
 	}
 	else
@@ -91,12 +92,13 @@ document.body.addEventListener('wheel', e =>
 			margin-=5;
 			document.getElementsByClassName("logo")[0].style.height = logoSize;
 			document.getElementsByClassName("logo")[0].style.marginLeft =  margin+"%";
-			}
+		/*}
 			
 		if (logoSize<360)
 		{
-			document.getElementById("projectsList").style.display = "flex";
-			document.getElementById("projectsList").style.opacity = 1.0;
+			document.getElementById("projectsList").style.display = "flex";*/
+			var f=1.0-(logoSize-300.0)/300.0;
+			document.getElementById("projectsList").style.opacity = f*f*f;
 		}
 	}
 });
