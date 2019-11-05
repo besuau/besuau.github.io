@@ -73,7 +73,10 @@ document.body.addEventListener('wheel', e =>
 			margin+=5;
 			document.getElementsByClassName("logo")[0].style.height = logoSize;
 			document.getElementsByClassName("logo")[0].style.marginLeft = margin+"%";
+		}
 
+		if (logoSize>540)
+		{
 			document.getElementById("projectsList").style.display = "none";
 			document.getElementById("projectsList").style.opacity = 0.0;
 		}
@@ -86,7 +89,10 @@ document.body.addEventListener('wheel', e =>
 			margin-=5;
 			document.getElementsByClassName("logo")[0].style.height = logoSize;
 			document.getElementsByClassName("logo")[0].style.marginLeft =  margin+"%";
+			}
 			
+		if (logoSize<360)
+		{
 			document.getElementById("projectsList").style.display = "flex";
 			document.getElementById("projectsList").style.opacity = 1.0;
 		}
