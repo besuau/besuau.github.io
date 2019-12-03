@@ -2,6 +2,12 @@
 <head>
 <meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0">
 <style>
+body
+{
+    background-image:url("background.png");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
 #logo
 {
 	position: fixed;
@@ -28,29 +34,35 @@ button
 	display: flex;
 	opacity: 0.0;
 	flex-wrap: wrap;
-	margin-top: 5%;
-	margin-left: 25%;
+	margin-top: 40px;
+	margin-left: 30%;
 	--items-h: 2;
-	--item-width: calc((100% / var(--items-h)) - 50px);
+	--item-width: calc((100% / var(--items-h)) - 60px);
 	--remaining-items: 2; /* Updated with JS */
 	transition: 0.5s;
 }
 .projectItem
 {
-	/*flex-grow: 1;*/
 	width: var(--item-width);
-	margin-bottom: 50px;
-	margin-right: 50px;
+	margin-bottom: 60px;
+	margin-right: 60px;
 	cursor: pointer;
 	font-family: Verdana;
+	font-size: 12px;
 	box-shadow: 2px 2px 7px #FFFFFF;
 	background-color: #FFFFFF;
 	transition: 0.25s;
+	border-radius: 4px;
+	padding: 0px;
+	background-color: #BBBBBB;
+	box-shadow: 1px 1px 3px #6b6b6b;
 }
 .projectItem:hover
 {
-	transform: translateY(-10px);
+	transform: translateY(-3px);
 	box-shadow: 2px 2px 7px #6b6b6b;
+	/*background-color: #32AAFF;*/
+	background-color: #0094FF;
 }
 .projectItem > img,
 .projectItem > svg
@@ -58,22 +70,35 @@ button
 	display: block;
 	width: 100%;
 	object-fit: cover;
+	border-radius: 4px 4px 0px 0px;
+}
+.projectItem > div
+{
+	color: #FFFFFF;
+	padding: 8px;
 }
 </style>
 </head>
-<body style="background-color:#FFFFF;">
+<body style="background-color:#F7F7F7;">
 
 <div id="logo"><img src="bsl.png" class="logo" style="max-height:100%;" /></div>
 
 <div id="projectsList">
-	<button class="projectItem">
-		<img src="dummy.png">
+	<button class="projectItem" onclick="window.open('http://www.deluxenote.com');">
+		<img src="DeluxeNote.png">
+		<div><b>Deluxe Note</b>&nbsp;&nbsp;&nbsp;2019</div>
 	</button>
-	<button class="projectItem">
-		<img src="dummy.png">
+	<button class="projectItem" onclick="window.open('http://www.furpuppies.com');">
+		<img src="FurPuppies.png">
+		<div><b>Fur Puppies</b>&nbsp;&nbsp;&nbsp;1997-2000, 2012</div>
 	</button>
-	<button class="projectItem">
-		<img src="dummy.png">
+	<button class="projectItem" onclick="window.open('http://www.gpslaptiming.com');">
+		<img src="GPSLapTiming.png">
+		<div><b>GPS Lap Timing</b>&nbsp;&nbsp;&nbsp;2006-2008</div>
+	</button>
+	<button class="projectItem" onclick="window.open('https://drive.google.com/file/d/1eu2EvSR6iqdurDMipe6JFJ1CrL2FUye-/view');">
+		<img src="RacingSpirit.png">
+		<div><b>Racing Spirit</b>&nbsp;&nbsp;&nbsp;2001-2003</div>
 	</button>
 </div>
 
