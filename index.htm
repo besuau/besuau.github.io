@@ -29,7 +29,7 @@ button
 }
 #projectsList
 {
-	position: fixed;
+	position: absolute;
 	width: 800px;
 	display: flex;
 	opacity: 0.0;
@@ -105,19 +105,35 @@ button
 <script>
 logoSize=600;
 margin=25;
+MINPUSH=5;
+push=MINPUSH;
 document.body.addEventListener('wheel', e =>
 {
 	if (e.deltaY<0)
 	{
-		if (logoSize<600)
+		if (document.body.scrollTop==0)
 		{
-			logoSize+=60;
-			margin+=5;
-			document.getElementsByClassName("logo")[0].style.height = logoSize;
-			document.getElementsByClassName("logo")[0].style.marginLeft = margin+"%";
+			if (push==MINPUSH)
+			{
+				if (logoSize<600)
+				{
+					logoSize+=60;
+					margin+=5;
+					document.getElementsByClassName("logo")[0].style.height = logoSize;
+					document.getElementsByClassName("logo")[0].style.marginLeft = margin+"%";
 
-			var f=1.0-(logoSize-300.0)/300.0;
-			document.getElementById("projectsList").style.opacity = f*f*f;
+					var f=1.0-(logoSize-300.0)/300.0;
+					document.getElementById("projectsList").style.opacity = f*f*f;
+				}
+			}
+			else
+			{
+				push++;
+			}
+		}
+		else
+		{
+			push=0;
 		}
 	}
 	else
