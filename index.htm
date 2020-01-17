@@ -1,5 +1,7 @@
+<!DOCTYPE html>
 <html lang="fr">
 <head>
+<title>Besuau Logiciels</title>
 <meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0">
 <style>
 body
@@ -7,6 +9,7 @@ body
     background-image:url("background.png");
     background-repeat: no-repeat;
     background-size: 100% 100%;
+	background-attachment: fixed;
 }
 #logo
 {
@@ -17,9 +20,12 @@ body
 }
 .logo
 {
-	margin-top: 0;
-	margin-bottom: 0;
-	margin-left: 25%;
+	--maxMarginLeft: calc(50vw - 300px);
+	--maxMarginTop: calc(50vh - 300px);
+	margin-left: var(--maxMarginLeft);
+	margin-top: var(--maxMarginTop);
+	margin-right: 0px;
+	margin-bottom: 0px;
 	transition: 0.5s;
 }
 
@@ -38,7 +44,6 @@ button
 	margin-left: 30%;
 	--items-h: 2;
 	--item-width: calc((100% / var(--items-h)) - 60px);
-	--remaining-items: 2; /* Updated with JS */
 	transition: 0.5s;
 }
 .projectItem
@@ -84,9 +89,9 @@ button
 <div id="logo"><img src="bsl.png" class="logo" style="max-height:100%;" /></div>
 
 <div id="projectsList">
-	<button class="projectItem">
-		<img src="dummy.png">
-		<div><b>DN</b>&nbsp;&nbsp;&nbsp;2019</div>
+	<button class="projectItem" onclick="window.open('http://www.deluxenote.com');">
+		<img src="DeluxeNote.png">
+		<div><b>Deluxe Note</b>&nbsp;&nbsp;&nbsp;2019</div>
 	</button>
 	<button class="projectItem" onclick="window.open('http://www.furpuppies.com');">
 		<img src="FurPuppies.png">
@@ -104,11 +109,15 @@ button
 
 <script>
 logoSize=600;
-margin=25;
 MINPUSH=5;
 push=MINPUSH;
 document.body.addEventListener('wheel', e =>
 {
+	var VW=Math.max(document.documentElement.clientWidth,window.innerWidth || 0);
+	var VH=Math.max(document.documentElement.clientHeight,window.innerHeight || 0);
+	var maxMarginLeft=(VW-600)/2.0;
+	var maxMarginTop=(VH-600)/2.0;
+	
 	if (e.deltaY<0)
 	{
 		if (document.body.scrollTop==0)
@@ -118,12 +127,14 @@ document.body.addEventListener('wheel', e =>
 				if (logoSize<600)
 				{
 					logoSize+=60;
-					margin+=5;
-					document.getElementsByClassName("logo")[0].style.height = logoSize;
-					document.getElementsByClassName("logo")[0].style.marginLeft = margin+"%";
+					document.getElementsByClassName("logo")[0].style.height=logoSize+"px";
+					
+					var lf=(logoSize-300.0)/300.0;
+					document.getElementsByClassName("logo")[0].style.marginLeft=(maxMarginLeft*lf)+"px";
+					document.getElementsByClassName("logo")[0].style.marginTop=(maxMarginTop*lf)+"px";
 
 					var f=1.0-(logoSize-300.0)/300.0;
-					document.getElementById("projectsList").style.opacity = f*f*f;
+					document.getElementById("projectsList").style.opacity=f*f*f;
 				}
 			}
 			else
@@ -141,12 +152,14 @@ document.body.addEventListener('wheel', e =>
 		if (logoSize>300)
 		{
 			logoSize-=60;
-			margin-=5;
-			document.getElementsByClassName("logo")[0].style.height = logoSize;
-			document.getElementsByClassName("logo")[0].style.marginLeft =  margin+"%";
+			document.getElementsByClassName("logo")[0].style.height=logoSize+"px";
 
-			var f=1.0-(logoSize-300.0)/300.0;
-			document.getElementById("projectsList").style.opacity = f*f*f;
+			var lf=(logoSize-300.0)/300.0;
+			document.getElementsByClassName("logo")[0].style.marginLeft=(maxMarginLeft*lf)+"px";
+			document.getElementsByClassName("logo")[0].style.marginTop=(maxMarginTop*lf)+"px";
+
+			var f=1.0-lf;
+			document.getElementById("projectsList").style.opacity=f*f*f;
 		}
 	}
 });
