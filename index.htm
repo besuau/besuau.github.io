@@ -17,7 +17,7 @@ body
 {
     background-image:url("background.png");
     background-repeat: no-repeat;
-    background-size: 100% 100%;
+    background-size: 1500px 100%;
 	background-attachment: fixed;
 }
 #logo
@@ -44,20 +44,19 @@ button
 }
 #projectsList
 {
+	--nItems: 3;
 	position: absolute;
-	width: 800px;
+	width: calc(var(--nItems) * 410px);
 	display: none;
 	opacity: 0.0;
 	flex-wrap: wrap;
 	margin-top: 40px;
-	margin-left: 30%;
-	--items-h: 2;
-	--item-width: calc((100% / var(--items-h)) - 60px);
+	margin-left: calc(320px + (100% - 320px - (var(--nItems) * 410px)) / 2);
 	transition: 0.5s;
 }
 .projectItem
 {
-	width: var(--item-width);
+	width: 350px;
 	margin-bottom: 60px;
 	margin-right: 60px;
 	cursor: pointer;
@@ -117,6 +116,20 @@ button
 </div>
 
 <script>
+function updateNItems()
+{
+	var VW=Math.max(document.documentElement.clientWidth,window.innerWidth || 0);
+	var numItems=Math.max(1,Math.trunc((VW-360)/(350+60)));
+	document.getElementById("projectsList").style.setProperty('--nItems',numItems);
+}
+
+updateNItems();
+
+window.onresize=function()
+{ 
+	updateNItems();
+}
+
 logoSize=600;
 MINPUSH=5;
 push=MINPUSH;
@@ -172,6 +185,7 @@ document.body.addEventListener('wheel', e =>
 		}
 	}
 });
+
 document.getElementsByClassName("logo")[0].addEventListener('transitionend', e =>
 {
 	if (logoSize>=540)
