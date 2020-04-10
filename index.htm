@@ -139,6 +139,9 @@
 </div>
 
 <script>
+let touchEvent='ontouchstart' in window ? 'touchstart' : 'click';
+document.getElementById('logo').addEventListener(touchEvent,someFunction);
+
 function start()
 {
 	var wheelCount=0;
