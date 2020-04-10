@@ -10,6 +10,9 @@
 
   gtag('config', 'UA-34473101-3');
 </script>
+<script>
+let touchEvent='ontouchstart' in window ? 'touchstart' : 'click';
+</script>
 <link rel="shortcut icon" href="b.ico" />
 <title>Besuau Logiciels</title>
 <meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0">
@@ -139,9 +142,6 @@
 </div>
 
 <script>
-let touchEvent='ontouchstart' in window ? 'touchstart' : 'click';
-document.getElementById('logo').addEventListener(touchEvent,someFunction);
-
 function start()
 {
 	var wheelCount=0;
@@ -151,6 +151,7 @@ function start()
 		wheelCount++;
 	}
 }
+document.getElementById('logo').addEventListener(touchEvent,start);
 
 function updateNItems()
 {
