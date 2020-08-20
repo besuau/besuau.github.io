@@ -111,6 +111,25 @@
 	color: #92999F;
 }
 
+a.changeWeb
+{
+	--maxMarginTop4: calc(100vh - 32px);
+	--maxMarginLeft4: calc(100vw - 100px);
+	position: fixed;
+	margin-left: var(--maxMarginLeft4);
+	margin-top: var(--maxMarginTop4);
+	margin-right: 0px;
+	margin-bottom: 0px;
+	font-family: Verdana;
+	font-size: 11px;
+	text-decoration: none;
+	color: #92999F;
+}
+a:hover.changeWeb
+{
+	text-decoration: underline;
+}
+
 #cookiesAlert
 {
 	position: fixed;
@@ -133,6 +152,7 @@
 <div id="logo2"><img src="Logiciels.png" class="logo2" /></div>
 
 <div class="copyright">&copy; 2020 Besuau S.L.U.&trade;</div>
+<a class="changeWeb" href="arcade.htm" >Arcade</a>
 
 <div id="projectsList">
 	<div class="projectItem" onclick="window.open('https://www.deluxenote.com');">
