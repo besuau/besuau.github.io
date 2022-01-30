@@ -10,73 +10,34 @@
 
   gtag('config', 'UA-34473101-3');
 </script>
-<link rel="shortcut icon" href="b.ico" />
-<title>Besuau Logiciels</title>
+<link rel="shortcut icon" href="../b.ico" />
+<title>Besuau Arcade</title>
 <meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0">
 <style>
-#logo
-{
-	position: fixed;
-	width: 100%;
-	height: 600px;
-	transition: 0.5s;
-}
-.logo
-{
-	--maxMarginLeft: calc(50vw - 300px);
-	--maxMarginTop: calc(50vh - 300px);
-	margin-left: var(--maxMarginLeft);
-	margin-top: var(--maxMarginTop);
-	margin-right: 0px;
-	margin-bottom: 0px;
-	transition: 0.5s;
-}
-
-#logo2
-{
-	position: fixed;
-	width: 100%;
-	height: 200px;
-	transition: 0.5s;
-}
-.logo2
-{
-	--maxMarginLeft2: calc(50vw - 300px);
-	--maxMarginTop2: calc(50vh - 300px + 550px);
-	margin-left: var(--maxMarginLeft2);
-	margin-top: var(--maxMarginTop2);
-	margin-right: 0px;
-	margin-bottom: 0px;
-	transition: 0.5s;
-}
-
 #projectsList
 {
 	--nItems: 3;
 	position: absolute;
 	width: calc(var(--nItems) * 410px);
-	display: none;
-	opacity: 0.0;
+	display: flex;
+	opacity: 1.0;
 	flex-wrap: wrap;
-	margin-top: 40px;
-	margin-left: calc(320px + (100% - 320px - (var(--nItems) * 410px)) / 2);
+	margin-top: 10px;
+	margin-left: calc((100% - (var(--nItems) * 410px)) / 2);
 	transition: 0.5s;
 }
 .projectItem
 {
 	width: 350px;
-	margin-bottom: 60px;
-	margin-right: 60px;
-	cursor: pointer;
-	font-family: Verdana;
-	font-size: 12px;
-	box-shadow: 2px 2px 7px #FFFFFF;
-	background-color: #FFFFFF;
-	transition: 0.25s;
-	border-radius: 4px;
+	margin: 30px;
 	padding: 0px;
+	cursor: pointer;
 	background-color: #BBBBBB;
 	box-shadow: 1px 1px 3px #6b6b6b;
+	border-radius: 4px;
+	font-family: Verdana;
+	font-size: 12px;
+	transition: 0.25s;
 }
 .projectItem:hover
 {
@@ -84,8 +45,7 @@
 	box-shadow: 2px 2px 7px #6b6b6b;
 	background-color: #0094FF;
 }
-.projectItem > img,
-.projectItem > svg
+.projectItem > img
 {
 	display: block;
 	width: 100%;
@@ -98,89 +58,206 @@
 	padding: 8px;
 }
 
-.copyright
+.logoItem
 {
-	--maxMarginTop3: calc(100vh - 32px);
-	position: fixed;
-	margin-left: 4px;
-	margin-top: var(--maxMarginTop3);
-	margin-right: 0px;
-	margin-bottom: 0px;
-	font-family: Verdana;
-	font-size: 11px;
-	color: #92999F;
+	width: 350px;
+	margin: 30px;
+	padding: 0px;
+	transition: 0.25s;
+}
+.logoItem > img,
+.logoItem > a > img
+{
+  display: block;
+  width: 300px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: auto;
+  margin-bottom: auto;
 }
 
-a.changeWeb
+.infoItem
 {
-	--maxMarginTop4: calc(100vh - 32px);
-	--maxMarginLeft4: calc(100vw - 100px);
-	position: fixed;
-	margin-left: var(--maxMarginLeft4);
-	margin-top: var(--maxMarginTop4);
-	margin-right: 0px;
-	margin-bottom: 0px;
+	width: 350px;
+	margin: 30px;
+	padding: 0px;
+	color: #555555;
+	text-align: left;
+	font-family: Verdana;
+	font-size: 12px;
+	transition: 0.25s;
+}
+
+.dummyItem
+{
+	width: 350px;
+	margin: 30px;
+	padding: 0px;
+}
+
+.footer
+{
+	width: 100%;
+	margin-top: 0px;
+	margin-bottom: 30px;
+	margin-left: 30px;
+	margin-right: 30px;
 	font-family: Verdana;
 	font-size: 11px;
-	text-decoration: none;
 	color: #92999F;
+	text-align: right;
 }
-a:hover.changeWeb
+a.footerLink
+{
+	color: #92999F;
+	text-decoration: none;
+}
+a:hover.footerLink
 {
 	text-decoration: underline;
-}
-
-#cookiesAlert
-{
-	position: fixed;
-	width: 100%;
-	margin-left: 10px;
-	margin-top: 10;
-	margin-right: 10px;
-	margin-bottom: 10px;
-	font-family: Verdana;
-	font-size: 11px;
-	color: #92999F;
 }
 </style>
 </head>
 <body style="background-color:#F7F7F7;">
 
-<div id="cookiesAlert"><center>This site uses cookies for analytics. By continuing to browse this site, you agree to this use.</center></div>
-
-<div id="logo" onclick="start();" style="cursor:pointer;"><img src="besuau.png" class="logo" /></div>
-<div id="logo2"><img src="Arcade.png" class="logo2" /></div>
-
-<div class="copyright">&copy; 2021 Besuau S.L.U.&trade;</div>
-<a class="changeWeb" href="/" >Logiciels</a>
-
 <div id="projectsList">
-	<div class="projectItem" onclick="window.open('http://www.furpuppies.com');">
+	<div class="logoItem">
+		<img src="../besuau.png" />
+		<a href="/"><img src="Arcade.png" /></a>
+		<img src="../since.png" />
+	</div>
+	<div class="projectItem" onclick="window.open('http://www.furpuppies.com');" id="furPuppiesItem">
 		<img src="FurPuppies.png">
 		<div><table width=100%" height="100%" cellspacing="0" cellpadding="0"><tr><td align="left">&nbsp;&nbsp;&nbsp;<b>Fur Puppies</b></td><td align="right">Arcade&nbsp;</td></tr></table></div>
 	</div>
-	<div class="projectItem" onclick="window.open('https://www.microsoft.com/en-us/p/racing-spirit/9nlr6fzwg8m7');">
+	<div class="projectItem" onclick="window.open('https://www.microsoft.com/en-us/p/racing-spirit/9nlr6fzwg8m7');" id="racingSpiritItem">
 		<img src="RacingSpirit.png">
 		<div><table width=100%" height="100%" cellspacing="0" cellpadding="0"><tr><td align="left">&nbsp;&nbsp;&nbsp;<b>Racing Spirit</b></td><td align="right">Arcade&nbsp;</td></tr></table></div>
+	</div>
+	<div class="dummyItem"></div>
+	<div class="dummyItem"></div>
+	<div class="infoItem" id="companyOverviewItem">
+		<p><b>Company Overview</b></p>
+		<p>Besuau is a software developer and publisher based in Barcelona. Founded in February 2020, Besuau aims to offer software products that people love to use.</p>
+		<p>The name Besuau is a literal translation of SOFT(suau)WARE(bé) into catalan. "Bé" and "suau" also evoke qualities we want our products have: good-finish, smooth(fast)-operation. Furthermore, "be suau" is the meaning of "bemoll" (soft B), the catalan name of the Flat music symbol that appears in the logo.</p>
+		<p>The Flat reference is symbolic of the desire to contribute to music practice and learning, being Besuau's first original product a music app.</p>
+	</div>
+	<div class="infoItem">
+		<p>
+			<br id="overviewTableAlignmentBr" />
+			<table width="100%" cellspacing="8" cellpadding="0" border="0" style="margin-left:-8px;margin-top:-8px;">
+			<tr>
+				<td width="50%"><b>Name of Company</b></td>
+				<td>BESUAU S.L.U.</td>
+			</tr>
+			<tr>
+				<td><b>Date of Establishment</b></td>
+				<td>February 7, 2020</td>
+			</tr>
+			<tr>
+				<td><b>Head Office</b></td>
+				<td>Barcelona, Spain</td>
+			</tr>
+			<tr>
+				<td><b>Representative</b></td>
+				<td>Founder Albert R. Farràs</td>
+			</tr>
+			<tr>
+				<td valign="top"><b>Business Segments</b></td>
+				<td>Development, sale and distribution of music software (approx. 85% of Net sales) as well as distribution of home video games (approx. 15% of Net sales)</td>
+			</tr>
+			</table>
+		</p>
+	</div>
+	<div class="infoItem">
+		<p>
+			<b>History and Accomplishments</b> <small>(as of January 31, 2022)</small><br/>
+			<table width="100%" cellspacing="8" cellpadding="0" border="0" style="margin-left:-8px;margin-top:-8px;">
+			<tr>
+				<td width="10%" valign="top" rowspan="6"><b>2020</b></td>
+				<td width="10%"><b>Feb</b></td>
+				<td>Established BESUAU S.L.U.</td>
+			</tr>
+			<tr>
+				<td valign="top" rowspan="2"><b>Apr</b></td>
+				<td>Published the platform game Fur Puppies</td>
+			</tr>
+			<tr>
+				<td>Earned the first sale</td>
+			</tr>
+			<tr>
+				<td><b>Jun</b></td>
+				<td>Published the racing game Racing Spirit</td>
+			</tr>
+			<tr>
+				<td><b>Jul</b></td>
+				<td>Released the first originally developed product DeluxeNote</td>
+			</tr>
+			<tr>
+				<td><b>Nov</b></td>
+				<td>Released DeluxeNote 1.1</td>
+			</tr>
+			<tr>
+				<td valign="top" rowspan="3"><b>2021</b></td>
+				<td><b>Mar</b></td>
+				<td>Released DeluxeNote 1.2</td>
+			</tr>
+			<tr>
+				<td><b>Jun</b></td>
+				<td>Released DeluxeNote 1.3</td>
+			</tr>
+			</table>
+		</p>
+	</div>
+	<div class="footer">
+		<table width="100%" cellspacing="0" cellpadding="0" border="0">
+		<tr>
+			<td align="left">&copy; 2022 Besuau S.L.U.</td>
+			<td align="right"><a class="footerLink" href="/">Logiciels</a> | <b>Arcade</b></td>
+		</tr>
+		</table>
 	</div>
 </div>
 
 <script>
-function start()
-{
-	var wheelCount=0;
-	while (logoSize>300 && wheelCount<5)
-	{
-		wheel(1);
-		wheelCount++;
-	}
-}
-
 function updateNItems()
 {
 	var VW=Math.max(document.documentElement.clientWidth,window.innerWidth || 0);
-	var numItems=Math.max(1,Math.trunc((VW-360)/(350+60)));
+	var numItems=Math.max(1,Math.min(3,Math.trunc(VW/(350+60+40))));
 	document.getElementById("projectsList").style.setProperty('--nItems',numItems);
+	
+	dummyItems=document.getElementsByClassName("dummyItem");
+	for (let i=3;i<5;i++)
+	{
+		dummyItems[i-3].style.display=(i>=numItems ? "none" : "flex");
+	}
+	
+	logoImages=document.getElementsByClassName("logoItem")[0].children;
+	for (let i=0;i<logoImages.length;i++)
+	{
+		if (logoImages[i].children.length>0)
+		{
+			logoImg=logoImages[i].getElementsByTagName("img")[0];
+		}
+		else
+		{
+			logoImg=logoImages[i];
+		}
+		if (numItems>1)
+		{
+			logoImg.setAttribute("style","margin-left: 12px;");
+			logoImg.style.width="300px";
+		}
+		else
+		{
+			logoImg.removeAttribute("style");
+			logoImg.style.width="350px";
+		}		
+	}
+
+	document.getElementById("overviewTableAlignmentBr").style.display=(numItems>2 ? "flex" : "none");
+	
+	document.getElementById(numItems==2 ? 'companyOverviewItem' : 'furPuppiesItem').after(document.getElementById('racingSpiritItem'));
 }
 
 updateNItems();
@@ -189,93 +266,6 @@ window.onresize=function()
 { 
 	updateNItems();
 }
-
-logoSize=600;
-logo2PanY=100;
-MINPUSH=5;
-push=MINPUSH;
-function wheel(delta)
-{
-	var VW=Math.max(document.documentElement.clientWidth,window.innerWidth || 0);
-	var VH=Math.max(document.documentElement.clientHeight,window.innerHeight || 0);
-	var maxMarginLeft=(VW-600)/2.0;
-	var maxMarginTop=(VH-600)/2.0;
-	
-	if (delta<0)
-	{
-		if (document.body.scrollTop==0)
-		{
-			if (push==MINPUSH)
-			{
-				if (logoSize<600)
-				{
-					logoSize+=60;
-					logo2PanY+=20;
-
-					document.getElementsByClassName("logo")[0].style.width=logoSize+"px";
-					document.getElementsByClassName("logo2")[0].style.width=logoSize+"px";
-					
-					var lf=(logoSize-300.0)/300.0;
-					document.getElementsByClassName("logo")[0].style.marginLeft=(maxMarginLeft*lf)+"px";
-					document.getElementsByClassName("logo")[0].style.marginTop=(maxMarginTop*lf)+"px";
-					document.getElementsByClassName("logo2")[0].style.marginLeft=(maxMarginLeft*lf)+"px";
-					document.getElementsByClassName("logo2")[0].style.marginTop=(maxMarginTop*lf+(logoSize/600.0)*450+logo2PanY)+"px";
-
-					var f=1.0-(logoSize-300.0)/300.0;
-					document.getElementById("projectsList").style.opacity=f*f*f;
-				}
-			}
-			else
-			{
-				push++;
-			}
-		}
-		else
-		{
-			push=0;
-		}
-	}
-	else
-	{
-		if (logoSize>300)
-		{
-			logoSize-=60;
-			logo2PanY-=20;
-
-			document.getElementsByClassName("logo")[0].style.width=logoSize+"px";
-			document.getElementsByClassName("logo2")[0].style.width=logoSize+"px";
-
-			var lf=(logoSize-300.0)/300.0;
-			document.getElementsByClassName("logo")[0].style.marginLeft=(maxMarginLeft*lf)+"px";
-			document.getElementsByClassName("logo")[0].style.marginTop=(maxMarginTop*lf)+"px";
-			document.getElementsByClassName("logo2")[0].style.marginLeft=(maxMarginLeft*lf)+"px";
-			document.getElementsByClassName("logo2")[0].style.marginTop=(maxMarginTop*lf+(logoSize/600.0)*450+logo2PanY)+"px";
-
-			var f=1.0-lf;
-			document.getElementById("projectsList").style.opacity=f*f*f;
-		}
-		push=0;
-	}
-
-	if (document.getElementById("cookiesAlert").style.display != "none")
-	{
-		document.getElementById("cookiesAlert").style.display = "none";
-	}
-};
-
-document.body.addEventListener('wheel', e => { wheel(e.deltaY); });
-
-document.getElementsByClassName("logo")[0].addEventListener('transitionend', e =>
-{
-	if (logoSize>=540)
-	{
-		document.getElementById("projectsList").style.display = "none";
-	}
-	else
-	{
-		document.getElementById("projectsList").style.display = "flex";
-	}
-});
 </script>
 
 </body>
